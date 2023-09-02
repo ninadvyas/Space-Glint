@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'node_modules/locomotive-scroll/dist/locomotive-scroll';
+
+body{
+  margin: 0px;
+  background-color: black;
+  color: white;
+}
+
