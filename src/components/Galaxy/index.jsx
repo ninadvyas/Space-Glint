@@ -11,7 +11,7 @@ const projects = [
   {
     title: "Sun",
     src: "sun.png",
-    color: "#000000"
+    color: "#E55807"
   },
   {
     title: "Mercury",
@@ -21,22 +21,22 @@ const projects = [
   {
     title: "Venus",
     src: "venus.png",
-    color: "#EFE8D3"
+    color: "#FFA41B"
   },
   {
     title: "Earth",
     src: "earth.png",
-    color: "#706D63"
+    color: "#0C356A"
   },
   {
     title: "Mars",
     src: "mars.png",
-    color: "#EFE8D3"
+    color: "#E25E3E"
   },
   {
     title: "Jupiter",
     src: "jupiter.png",
-    color: "#EFE8D3"
+    color: "#8D7B68"
   },
   {
     title: "Saturn",
@@ -46,12 +46,12 @@ const projects = [
   {
     title: "Uranus",
     src: "uranus.png",
-    color: "#EFE8D3"
+    color: "#33BBC5"
   },
   {
     title: "Neptune",
     src: "neptune.png",
-    color: "#EFE8D3"
+    color: "#279EFF"
   },
 ]
 
@@ -122,7 +122,7 @@ export default function Home() {
                 return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
                     <Image 
                     src={`/images/${src}`}
-                    width={300}
+                    width={350}
                     height={0}
                     alt="image"
                     />
