@@ -3,7 +3,7 @@ import { useEffect,useState } from 'react';
 import styles from './page.module.css'
 import Intro from '../components/Intro';
 import Description from '../components/Description';
-// import detail from '../components/Xdetails';
+import Detail from '../components/Xdetails';
 import { AnimatePresence } from 'framer-motion';
 import Preloader from '../components/Preloader';
 import Projects from '../components/Galaxy';
@@ -45,8 +45,7 @@ export default function Home() {
         
         <Description />
         <Projects />
-
-        {/* <detail /> */}
+        <Detail/>
 
       </main>
   )
