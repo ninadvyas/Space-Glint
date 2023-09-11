@@ -41,12 +41,10 @@ export default function Home() {
 <AnimatePresence mode='wait'>
         {isLoading && <Preloader />}
       </AnimatePresence>
-        <Intro />
-        
+        <Detail/>
         <Description />
         <Projects />
-        <Detail/>
-
+        
       </main>
   )
 }

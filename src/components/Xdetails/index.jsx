@@ -60,7 +60,6 @@ export default function Home() {
 
   const container = useRef(null);
   const stickyMask = useRef(null);
-
   const initialMaskSize = .8;
   const targetMaskSize = 30;
   const easing = 0.15;
@@ -88,7 +87,7 @@ export default function Home() {
       <div ref={container} className={styles.container}>
         <div ref={stickyMask} className={styles.stickyMask}>
           <video autoPlay muted loop>
-            <source src="/medias/earth.mp4" type="video/mp4"/>
+            <source src="/medias/space.mp4" type="video/mp4"/>
           </video>
         </div>
        
@@ -106,8 +105,6 @@ export default function Home() {
     </div>
   )
 }
-
-
 // import React, { useState, useLayoutEffect, useRef } from 'react'
 // import styles from './style.module.css';
 // import Image from 'next/image';

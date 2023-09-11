@@ -5,53 +5,63 @@ import Project from './components/project';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
+import Link from 'next/link';
 // import Rounded from '../../common/RoundedButton';
 
 const projects = [
   {
     title: "Sun",
     src: "sun.png",
-    color: "#E55807"
+    color: "#E55807",
+    path: '/sun',
   },
   {
     title: "Mercury",
     src: "mercury.png",
-    color: "#8C8C8C"
+    color: "#8C8C8C",
+    path: '/sun',
   },
   {
     title: "Venus",
     src: "venus.png",
-    color: "#FFA41B"
+    color: "#FFA41B",
+    path: '/sun',
   },
   {
     title: "Earth",
     src: "earth.png",
-    color: "#0C356A"
+    color: "#0C356A",
+    path: '/sun',
   },
   {
     title: "Mars",
     src: "mars.png",
-    color: "#E25E3E"
+    color: "#E25E3E",
+    path: '/sun',
   },
   {
     title: "Jupiter",
     src: "jupiter.png",
-    color: "#8D7B68"
+    color: "#8D7B68",
+    path: '/sun',
   },
   {
     title: "Saturn",
     src: "saturn.png",
-    color: "#EFE8D3"
+    color: "#EFE8D3",
+    path: '/sun',
   },
   {
     title: "Uranus",
     src: "uranus.png",
-    color: "#33BBC5"
+    color: "#33BBC5",
+    path: '/sun',
   },
   {
     title: "Neptune",
     src: "neptune.png",
-    color: "#279EFF"
+    color: "#279EFF",
+    path: '/sun',
   },
 ]
 
@@ -110,9 +120,6 @@ export default function Home() {
         })
       }
     </div>
-    {/* <Rounded>
-      <p>More work</p>
-    </Rounded> */}
     <>
         <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className={styles.modalContainer}>
             <div style={{top: index * -100 + "%"}} className={styles.modalSlider}>
@@ -120,6 +127,7 @@ export default function Home() {
                 projects.map( (project, index) => {
                 const { src, color } = project
                 return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
+
                     <Image 
                     src={`/images/${src}`}
                     width={350}
