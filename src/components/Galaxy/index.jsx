@@ -5,63 +5,61 @@ import Project from './components/project';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
-import Link from 'next/link';
-// import Rounded from '../../common/RoundedButton';
 
 const projects = [
   {
     title: "Sun",
     src: "sun.png",
     color: "#E55807",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Mercury",
     src: "mercury.png",
     color: "#8C8C8C",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Venus",
     src: "venus.png",
     color: "#FFA41B",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Earth",
     src: "earth.png",
     color: "#0C356A",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Mars",
     src: "mars.png",
     color: "#E25E3E",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Jupiter",
     src: "jupiter.png",
     color: "#8D7B68",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Saturn",
     src: "saturn.png",
     color: "#EFE8D3",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Uranus",
     src: "uranus.png",
     color: "#33BBC5",
-    path: '/sun',
+    href: '/sun',
   },
   {
     title: "Neptune",
     src: "neptune.png",
     color: "#279EFF",
-    path: '/sun',
+    href: '/sun',
   },
 ]
 
@@ -114,11 +112,15 @@ export default function Home() {
   return (
   <main onMouseMove={(e) => {moveItems(e.clientX, e.clientY)}} className={styles.projects}>
     <div className={styles.body}>
-      {
-        projects.map( (project, index) => {
-          return <Project index={index} title={project.title} manageModal={manageModal} key={index}/>
-        })
-      }
+    {
+  projects.map((project, index) => {
+    return (
+      <a href={project.href} key={index}>
+          <Project index={index} title={project.title} manageModal={manageModal} />
+      </a>
+    );
+  })
+}
     </div>
     <>
         <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className={styles.modalContainer}>
