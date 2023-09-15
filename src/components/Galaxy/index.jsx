@@ -5,6 +5,7 @@ import Project from './components/project';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -115,9 +116,9 @@ export default function Home() {
     {
   projects.map((project, index) => {
     return (
-      <a href={project.href} key={index}>
+      <Link href={project.href} key={index}>
           <Project index={index} title={project.title} manageModal={manageModal} />
-      </a>
+      </Link>
     );
   })
 }
@@ -129,13 +130,14 @@ export default function Home() {
                 projects.map( (project, index) => {
                 const { src, color } = project
                 return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
-
+                    <Link href={project.href} key={index}>
                     <Image 
                     src={`/images/${src}`}
                     width={350}
                     height={0}
                     alt="image"
                     />
+                     </Link>
                 </div>
                 })
             }
