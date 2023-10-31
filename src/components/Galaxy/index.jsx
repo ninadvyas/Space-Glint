@@ -12,55 +12,46 @@ const projects = [
     title: "Sun",
     src: "sun.png",
     color: "#E55807",
-    href: '/sun',
   },
   {
     title: "Mercury",
     src: "mercury.png",
     color: "#8C8C8C",
-    href: '/sun',
   },
   {
     title: "Venus",
     src: "venus.png",
     color: "#FFA41B",
-    href: '/sun',
   },
   {
     title: "Earth",
     src: "earth.png",
     color: "#0C356A",
-    href: '/sun',
   },
   {
     title: "Mars",
     src: "mars.png",
     color: "#E25E3E",
-    href: '/sun',
   },
   {
     title: "Jupiter",
     src: "jupiter.png",
     color: "#8D7B68",
-    href: '/sun',
   },
   {
     title: "Saturn",
     src: "saturn.png",
     color: "#EFE8D3",
-    href: '/sun',
   },
   {
     title: "Uranus",
     src: "uranus.png",
     color: "#33BBC5",
-    href: '/sun',
   },
   {
     title: "Neptune",
     src: "neptune.png",
     color: "#279EFF",
-    href: '/sun',
   },
 ]
 
@@ -116,9 +107,9 @@ export default function Home() {
     {
   projects.map((project, index) => {
     return (
-      <Link href={project.href} key={index}>
-          <Project index={index} title={project.title} manageModal={manageModal} />
-      </Link>
+      // <Link href={project.href} >
+          <Project index={index} key={index} title={project.title} manageModal={manageModal} />
+      // </Link>
     );
   })
 }
@@ -130,14 +121,14 @@ export default function Home() {
                 projects.map( (project, index) => {
                 const { src, color } = project
                 return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
-                    <Link href={project.href} key={index}>
+                    {/* <Link href={project.href} key={index}> */}
                     <Image 
                     src={`/images/${src}`}
                     width={350}
                     height={0}
                     alt="image"
                     />
-                     </Link>
+                     {/* </Link> */}
                 </div>
                 })
             }
