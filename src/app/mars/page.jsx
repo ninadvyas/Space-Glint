@@ -40,13 +40,13 @@ export default function Index() {
             <div className={styles.intro}>
                     <div ref={introImage} data-scroll data-scroll-speed="0.3" className={styles.introImage}>
                         <Image
-                            src={'/images/moonn.png'}
+                            src={'/images/mars.png'}
                             alt="intro image"
                             fill={true} 
                             priority={true}
                         />
                     </div>
-                    <h1 data-scroll data-scroll-speed="0.7">SUN</h1>
+                    <h1 data-scroll data-scroll-speed="0.7">MARS</h1>
              </div>
         </div>
     )
