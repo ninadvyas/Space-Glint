@@ -125,7 +125,7 @@ export default function Home() {
   projects.map((project, index) => {
     return (
       // eslint-disable-next-line react/jsx-key
-      <Link href={project.href} >
+      <Link href={project.href} className={styles.body}>
           <Project index={index} key={index} title={project.title} manageModal={manageModal} />
       </Link>
     );
