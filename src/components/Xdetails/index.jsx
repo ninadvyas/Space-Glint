@@ -9,14 +9,14 @@ export default function Home() {
   let time = Math.PI / 2;
   let reqId = null;
 
-  useEffect(() => {
-    setPath(progress);
-  }, [])
+  // useEffect(() => {
+  //   setPath(progress);
+  // }, [])
 
-  const setPath = (progress) => {
-    const width = window.innerWidth * 0.7;
-    path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`)
-  }
+  // const setPath = (progress) => {
+  //   const width = window.innerWidth * 0.7;
+  //   path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`)
+  // }
 
   const lerp = (x, y, a) => x * (1 - a) + y * a
 
@@ -92,16 +92,7 @@ export default function Home() {
         </div>
        
       </div>
-      <div className={styles.line}>
-              <div onMouseEnter={() => {manageMouseEnter()}} onMouseMove={(e) => {manageMouseMove(e)}} onMouseLeave={() => {manageMouseLeave()}} className={styles.box}></div>
-              <svg>
-                <path ref={path}></path>
-              </svg>
-            </div>
-            <div className={styles.description}>
-              <p className='text-3xl text-gray-500'>Space Glint:</p>
-              <p>Space and galaxies are some of the most captivating and awe-inspiring subjects in astronomy and astrophysics. </p>
-            </div>
+      
     </div>
   )
 }
