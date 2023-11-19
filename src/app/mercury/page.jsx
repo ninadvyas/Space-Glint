@@ -85,7 +85,7 @@ export default function Home() {
 
     return (
         <div className={styles.mainn}>
-            <div ref={container} className={styles.container}>
+            <div ref={container} className={styles.containerr}>
                 <div ref={stickyMask} className={styles.stickyMask}>
                     <video autoPlay muted loop>
                         <source src="/medias/mercury.mp4" type="video/mp4" />
