@@ -1,53 +1,101 @@
-'use client';
-import React, { useLayoutEffect, useRef } from 'react'
-import styles from './style.module.css';
-import Image from 'next/image';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+'use client'
+import { useRef, useEffect } from 'react';
+import styles from './style.module.css'
+import { MaskText } from './MaskText';
 
-export default function Index() {
+export default function Home() {
+    const path = useRef(null);
+    let progress = 0;
+    let x = 0.5;
+    let time = Math.PI / 2;
+    let reqId = null;
 
-    const background = useRef(null);
-    const introImage = useRef(null);
+    //   useEffect(() => {
+    //     setPath(progress);
+    //   }, [])
 
-    useLayoutEffect( () => {
-        gsap.registerPlugin(ScrollTrigger);
+    //   const setPath = (progress) => {
+    //     const width = window.innerWidth * 0.7;
+    //     path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`)
+    //   }
 
-        const timeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: document.documentElement,
-                scrub: true,
-                start: "top",
-                end: "+=500px",
-            },
-        })
+    const lerp = (x, y, a) => x * (1 - a) + y * a
 
-        timeline
-            .from(background.current, {clipPath: `inset(15%)`})
-            .to(introImage.current, {height: "200px"}, 0)
+    const manageMouseEnter = () => {
+        if (reqId) {
+            cancelAnimationFrame(reqId)
+            resetAnimation()
+        }
+    }
+
+    const manageMouseMove = (e) => {
+        const { movementY, clientX } = e;
+        const pathBound = path.current.getBoundingClientRect();
+        x = (clientX - pathBound.left) / pathBound.width;
+        progress += movementY
+        setPath(progress);
+    }
+
+    const manageMouseLeave = () => {
+        animateOut();
+    }
+
+    const animateOut = () => {
+        const newProgress = progress * Math.sin(time);
+        progress = lerp(progress, 0, 0.025);
+        time += 0.2;
+        setPath(newProgress);
+        if (Math.abs(progress) > 0.75) {
+            reqId = requestAnimationFrame(animateOut);
+        }
+        else {
+            resetAnimation();
+        }
+    }
+
+    const resetAnimation = () => {
+        time = Math.PI / 2;
+        progress = 0;
+    }
+
+
+    const container = useRef(null);
+    const stickyMask = useRef(null);
+    const initialMaskSize = .8;
+    const targetMaskSize = 30;
+    const easing = 0.15;
+    let easedScrollProgress = 0;
+
+    useEffect(() => {
+        requestAnimationFrame(animate)
     }, [])
 
+    const animate = () => {
+        const maskSizeProgress = targetMaskSize * getScrollProgress();
+        stickyMask.current.style.webkitMaskSize = (initialMaskSize + maskSizeProgress) * 100 + "%";
+        requestAnimationFrame(animate)
+    }
+
+    const getScrollProgress = () => {
+        const scrollProgress = stickyMask.current.offsetTop / (container.current.getBoundingClientRect().height - window.innerHeight)
+        const delta = scrollProgress - easedScrollProgress;
+        easedScrollProgress += delta * easing;
+        return easedScrollProgress
+    }
+
     return (
-        <div className={styles.homeHeader}>
-            <div className={styles.backgroundImage} ref={background}>
-                <Image 
-                    src={'/images/back.png'}
-                    fill={true}
-                    alt="background image"
-                    priority={true}
-                />
+        <div className={styles.mainn}>
+            <div ref={container} className={styles.containerr}>
+                <div ref={stickyMask} className={styles.stickyMask}>
+                    <video autoPlay muted loop>
+                        <source src="/medias/earth.mp4" type="video/mp4" />
+                    </video>
+                </div>
             </div>
-            <div className={styles.intro}>
-                    <div ref={introImage} data-scroll data-scroll-speed="0.3" className={styles.introImage}>
-                        <Image
-                            src={'/images/earth.png'}
-                            alt="intro image"
-                            fill={true} 
-                            priority={true}
-                        />
-                    </div>
-                    <h1 data-scroll data-scroll-speed="0.7">EARTH</h1>
-             </div>
+            <div className={styles.container}>
+                <MaskText />
+            </div>
         </div>
     )
 }
+
