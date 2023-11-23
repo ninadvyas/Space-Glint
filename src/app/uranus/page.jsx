@@ -88,7 +88,7 @@ export default function Home() {
             <div ref={container} className={styles.containerr}>
                 <div ref={stickyMask} className={styles.stickyMask}>
                     <video autoPlay muted loop>
-                        <source src="/medias/earth.mp4" type="video/mp4" />
+                        <source src="/medias/uranus.mp4" type="video/mp4" />
                     </video>
                 </div>
             </div>
