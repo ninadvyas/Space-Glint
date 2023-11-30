@@ -9,7 +9,7 @@ export default function Home() {
     let x = 0.5;
     let time = Math.PI / 2;
     let reqId = null;
-
+    
     //   useEffect(() => {
     //     setPath(progress);
     //   }, [])
