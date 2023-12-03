@@ -70,6 +70,13 @@ const projects = [
     href: '/neptune',
 
   },
+  {
+    title: "Moon",
+    src: "moon.jpg",
+    color: "#8C8C8C",
+    href: '/moon',
+
+  },
 ]
 
 const scaleAnimation = {
