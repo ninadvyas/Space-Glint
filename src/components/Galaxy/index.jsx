@@ -77,6 +77,13 @@ const projects = [
     href: '/moon',
 
   },
+  {
+    title: "Stars",
+    src: "stars.jpg",
+    color: "#8C8C8C",
+    href: '/stars',
+
+  },
 ]
 
 const scaleAnimation = {
