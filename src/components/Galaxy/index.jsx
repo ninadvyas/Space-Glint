@@ -84,6 +84,13 @@ const projects = [
     href: '/stars',
 
   },
+  {
+    title: "Black Hole",
+    src: "blackhole.jpg",
+    color: "#000000",
+    href: '/blackhole',
+
+  },
 ]
 
 const scaleAnimation = {
