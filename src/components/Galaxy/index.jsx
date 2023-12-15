@@ -9,6 +9,27 @@ import Link from 'next/link';
 
 const projects = [
   {
+    title: "Moon",
+    src: "moon.jpg",
+    color: "#8C8C8C",
+    href: '/moon',
+
+  },
+  {
+    title: "Stars",
+    src: "stars.jpg",
+    color: "#8C8C8C",
+    href: '/stars',
+
+  },
+  {
+    title: "Black Hole",
+    src: "blackhole.jpg",
+    color: "#000000",
+    href: '/blackhole',
+
+  },
+  {
     title: "Sun",
     src: "sun.png",
     color: "#E55807",
@@ -70,27 +91,7 @@ const projects = [
     href: '/neptune',
 
   },
-  {
-    title: "Moon",
-    src: "moon.jpg",
-    color: "#8C8C8C",
-    href: '/moon',
 
-  },
-  {
-    title: "Stars",
-    src: "stars.jpg",
-    color: "#8C8C8C",
-    href: '/stars',
-
-  },
-  {
-    title: "Black Hole",
-    src: "blackhole.jpg",
-    color: "#000000",
-    href: '/blackhole',
-
-  },
 ]
 
 const scaleAnimation = {
